@@ -1,16 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/demo_internal_contacts?useSSL=false&createDatabaseIfNotExist=true
-    username: root
-    password: Mysql@2018
-    driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    properties:
-      hibernate:
-        show_sql: false
-        hbm2ddl:
-          auto: update
-          management:
   jackson:
     serialization:
       INDENT_OUTPUT: true
