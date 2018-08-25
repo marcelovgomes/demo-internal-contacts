@@ -9,12 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
-	/*
-	@Id
-	@GeneratedValue
-	private Long id;
-	*/
-	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
