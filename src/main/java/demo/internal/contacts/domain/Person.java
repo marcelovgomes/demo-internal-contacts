@@ -13,13 +13,13 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	@Column(name = "name", length = 128)
+	@Column(name = "name", length = 50)
 	private String name;
 	
-	@Column(name = "lastname", length = 128)
+	@Column(name = "lastname", length = 50)
 	private String lastname;
 
-	@Column(name = "email", length = 128)
+	@Column(name = "email", length = 100)
 	private String email;
 	
 	@Column(name = "telephone")

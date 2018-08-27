@@ -1,33 +1,583 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Italic;\f4\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red251\green2\blue7;\red0\green0\blue0;
+\red63\green127\blue95;\red3\green45\blue153;\red9\green79\blue5;\red255\green255\blue255;\red251\green2\blue7;
+}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c14913\c0;\cssrgb\c0\c0\c0;
+\csgenericrgb\c24706\c49804\c37255;\cssrgb\c0\c25950\c66514;\csgenericrgb\c3529\c30980\c1961;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c14913\c0;
+}
 \paperw11900\paperh16840\margl1440\margr1440\vieww20720\viewh15420\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Demo - Internal Contacts\
+\f0\b\fs36 \cf0 :: DEMO SCRIPT - SPRING BOOT ::
+\b0\fs24 \
 \
-1. Open the Eclipse and create a new Spring Started Project using Dashboard\
+
+\b \cf2 \cb3 START DEMO
+\b0 \cf0 \cb1 \
 \
-Name: demo-internal-contacts\
-Group: demo.internal.contacts\
-Artifact: demo-internal-contacts\
-Description: Demo - Internal Contacts\
-Package: demo.internal.contacts\
+
+\b 1. A simple Spring Script (Groovy):\
 \
-2. Select the following dependencies:\
+1.1. Open the terminal\
+1.2. Create the script \'93hello.groovy\'94 inside the folder \'93Downloads\'94 (using nano)\
+
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b\fs22 \cf2 \cb4 \CocoaLigature0 @RestController\
+class HelloController \{\
 \
-- Actuator: to show how monitor and manage the demo application\
-- HSQLDB: to work with data in memory\
-- JPA: java persistence API\
-- Security: to show how enable security control in demo application\
+        @RequestMapping("/")\
+        def String hello() \{\
 \
-3. Create the demo application\
+                "Groovy says: Hello World !"\
 \
-4. Open the pom.xml and show the dependencies\
+        \}\
 \
-5. Create domain class - Person\
+        @RequestMapping("/\{user\}")\
+        def helloUser(@PathVariable String user) \{\
 \
-6. Create repository interface - IPersonRepository\
+                "Groovy says: Hello " + user + " !"\
 \
-7. }
+        \}\
+\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b0\fs24 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 1.3. Show the results\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\
+
+\b 2. Create a spring boot project in Eclipse with the name \'93demo-spring-boot-console-web\'94\
+
+\b0 \
+
+\b 2.1. In the \'93main method\'94 - DemoSpringBootConsoleApplication, insert:\
+
+\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 \cb4 System.out.println("A simple console application using Spring Boot!");
+\f2\b0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 2.2. Show the results\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf5 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 2.3. Add \cf6 \'93spring-boot-starter-web\'94 \cf0 dependency in POM.XML\
+
+\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf2 \cb4    <dependency>\
+     <groupId>org.springframework.boot</groupId>\
+     <artifactId>spring-boot-starter-web</artifactId>\
+   </dependency>\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 2.4. Create the microservice \'93MessageBrowse\'94 in DemoSpringBootConsoleApplication.java
+\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf5  \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 @RestController\
+
+\f1\b class
+\f2\b0  MessageBrowse \{\
+	@RequestMapping("/hello")\
+	String hello() \{\
+		
+\f1\b return
+\f2\b0  "Java says: Hello!";\
+	\}\
+\
+	@RequestMapping("/hello/\{user\}")\
+	String helloUser(@PathVariable String user) \{\
+		
+\f1\b return
+\f2\b0  "Java says: Hello " + user + " !";\
+	\}\
+\}
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+
+\b 2.5. Show the results
+\b0 \
+\
+\
+
+\b 3. Create a spring boot project in Eclipse with the name \'93demo-internal-contacts\'94
+\b0 \
+\
+
+\b 3.1. POM.XML
+\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf2 \cb4 <?xml version=
+\f3\i "1.0"
+\f2\i0  encoding=
+\f3\i "UTF-8"
+\f2\i0 ?>\
+<project xmlns=
+\f3\i "http://maven.apache.org/POM/4.0.0"
+\f2\i0 \
+	xmlns:xsi=
+\f3\i "http://www.w3.org/2001/XMLSchema-instance"
+\f2\i0 \
+	xsi:schemaLocation=
+\f3\i "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+\f2\i0 >\
+	<modelVersion>4.0.0</modelVersion>\
+\
+	<groupId>demo.internal.contacts</groupId>\
+	<artifactId>demo-internal-contacts</artifactId>\
+	<version>0.0.1-SNAPSHOT</version>\
+\
+	<name>demo-internal-contacts</name>\
+	<description>Demo - Internal Contacts</description>\
+\
+	<parent>\
+		<groupId>org.springframework.boot</groupId>\
+		<artifactId>spring-boot-starter-parent</artifactId>\
+		<version>1.5.10.RELEASE</version>\
+	</parent>\
+\
+	<properties>\
+		<java.version>1.8</java.version>\
+	</properties>\
+\
+	<dependencies>\
+		<dependency>\
+			<groupId>org.springframework.boot</groupId>\
+			<artifactId>spring-boot-starter-web</artifactId>\
+		</dependency>\
+		<dependency>\
+			<groupId>org.springframework.boot</groupId>\
+			<artifactId>spring-boot-starter-data-jpa</artifactId>\
+		</dependency>\
+		<dependency>\
+			<groupId>org.hsqldb</groupId>\
+			<artifactId>hsqldb</artifactId>\
+			<scope>runtime</scope>\
+		</dependency>\
+		<dependency>\
+			<groupId>mysql</groupId>\
+			<artifactId>mysql-connector-java</artifactId>\
+		</dependency>\
+	</dependencies>\
+\
+	<build>\
+		<plugins>\
+			<plugin>\
+				<groupId>org.springframework.boot</groupId>\
+				<artifactId>spring-boot-maven-plugin</artifactId>\
+			</plugin>\
+		</plugins>\
+	</build>\
+</project>
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+
+\b 3.2. Create Entity class \'93Person.java\'94
+\b0 \
+\
+\cf2 \cb4 package demo.internal.contacts.domain;\
+\
+import javax.persistence.Column;\
+import javax.persistence.Entity;\
+import javax.persistence.GeneratedValue;\
+import javax.persistence.GenerationType;\
+import javax.persistence.Id;\
+\
+@Entity\
+public class Person \{\
+\
+    @Id\
+    @GeneratedValue(strategy = GenerationType.IDENTITY)\
+    private long id;\
+	\
+	@Column(name = "name", length = 50)\
+	private String name;\
+	\
+	@Column(name = "lastname", length = 50)\
+	private String lastname;\
+\
+	@Column(name = "email", length = 100)\
+	private String email;\
+	\
+	@Column(name = "telephone")\
+	private int telephone;\
+\
+	public Long getId() \{\
+		return id;\
+	\}\
+\
+	public void setId(Long id) \{\
+		this.id = id;\
+	\}\
+\
+	public String getName() \{\
+		return name;\
+	\}\
+\
+	public void setName(String name) \{\
+		this.name = name;\
+	\}\
+\
+	public String getLastname() \{\
+		return lastname;\
+	\}\
+\
+	public void setLastname(String lastname) \{\
+		this.lastname = lastname;\
+	\}\
+\
+	public String getEmail() \{\
+		return email;\
+	\}\
+\
+	public void setEmail(String email) \{\
+		this.email = email;\
+	\}\
+\
+	public int getTelephone() \{\
+		return telephone;\
+	\}\
+\
+	public void setTelephone(int telephone) \{\
+		this.telephone = telephone;\
+	\}\
+\
+	@Override\
+	public String toString() \{\
+		return "Person [id=" + id + ", name=" + name + ", lastname=" + lastname + ", email=" + email + ", telephone="\
+				+ telephone + "]";\
+	\}\
+\
+	public Person() \{\
+		super();\
+		// TODO Auto-generated constructor stub\
+	\}\
+\
+	public Person(String name, String lastname, String email, int telephone) \{\
+		super();\
+		this.name = name;\
+		this.lastname = lastname;\
+		this.email = email;\
+		this.telephone = telephone;\
+	\}\
+\}\
+\cf0 \cb1 \
+
+\b 3.3. Create Interface \'93IPersonRepository.java\'94
+\b0 \
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 \cb4 package
+\f2\b0  demo.internal.contacts.controller;\
+\
+
+\f1\b import
+\f2\b0  demo.internal.contacts.domain.Person;\
+\
+
+\f1\b import
+\f2\b0  org.springframework.data.repository.CrudRepository;\
+\
+
+\f1\b public
+\f2\b0  
+\f1\b interface
+\f2\b0  IPersonRepository 
+\f1\b extends
+\f2\b0  CrudRepository<Person, Long>\{\
+	// The all CRUD methods are provided:\
+	// save, findById, delete, etc \
+	\
+	// Here you can create other methods\
+\}\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 3.4. Create Controller \'93PersonController.java\'94
+\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf5 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4 package demo.internal.contacts.controller;\
+\
+import java.util.ArrayList;\
+import java.util.Iterator;\
+import java.util.List;\
+import java.util.Random;\
+\
+import org.springframework.beans.factory.annotation.Autowired;\
+import org.springframework.web.bind.annotation.PathVariable;\
+import org.springframework.web.bind.annotation.RequestBody;\
+import org.springframework.web.bind.annotation.RequestMapping;\
+import org.springframework.web.bind.annotation.RequestMethod;\
+import org.springframework.web.bind.annotation.ResponseBody;\
+import org.springframework.web.bind.annotation.RestController;\
+\
+\
+import demo.internal.contacts.domain.Person;\
+import demo.internal.contacts.utility.RandomString;\
+\
+@RestController\
+public class PersonController \{\
+\
+	@Autowired\
+	private IPersonRepository repository;	\
+	\
+	@RequestMapping(value="/", method=RequestMethod.GET)\
+	public String home() \{\
+		return "Internal Contacts";\
+	\}\
+\
+	@RequestMapping(value="/add/\{autoinsert\}", method=RequestMethod.GET)\
+	public void insert_start(@PathVariable int autoinsert) \{\
+		RandomString randomStr = new RandomString(8);\
+		Random randomInt = new Random(autoinsert);\
+		\
+		for(int i=0; i < autoinsert; i++ ) \{\
+			Person person = new Person();\
+			\
+			person.setName(randomStr.nextString());\
+			person.setLastname(randomStr.nextString());\
+			person.setEmail(randomStr.nextString() + "@test.com");\
+			person.setTelephone(Math.abs(randomInt.nextInt()));\
+			\
+			repository.save(person);\
+		\}\
+	\}\
+	\
+	@RequestMapping(value="/add", method=RequestMethod.PUT)\
+	public @ResponseBody Person insert(@RequestBody Person person) \{\
+		repository.save(person);\
+\
+		return person;\
+	\}\
+\
+	@RequestMapping(value="/list", method=RequestMethod.GET)\
+	public List<Person> get() \{\
+		List<Person> result = new ArrayList<Person>();\
+		Iterator<Person> iterator = repository.findAll().iterator();\
+\
+		while (iterator.hasNext()) \{\
+			result.add(iterator.next());\
+		\}\
+\
+		return result;\
+	\}\
+\}\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 3.5. Run the application and show the methods \'93/add\'94, \'93/add/\{autoinsert\}\'94 and \'93/list\'94.\
+\
+3.6. Adjust the JSON format in application.yml\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 \cb4 spring:\
+  jackson:\
+    serialization:\
+      INDENT_OUTPUT: 
+\f1\b true\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 3.7. Add the necessary dependencies to JSON format in POM.XML\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf7 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 \cb4 		<dependency>\
+			<groupId>com.fasterxml.jackson.core</groupId>\
+			<artifactId>jackson-annotations</artifactId>\
+			\ul <version>2.8.0</version>\ulnone \
+		</dependency>\
+		<dependency>\
+			<groupId>com.fasterxml.jackson.core</groupId>\
+			<artifactId>jackson-databind</artifactId>\
+			\ul <version>2.8.10</version>\ulnone \
+		</dependency>\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf7 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 3.6. Run the application again and show the methods \'93/add\'94, \'93/add/\{autoinsert\}\'94 and \'93/list\'94.\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf7 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 3.7. Use SoapUI application to new tests.\
+\
+\cf2 \cb4 To \'93/add\'94 method:\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4\b0\fs26\fsmilli13333 \cf2 \expnd0\expndtw0\kerning0
+\{"name":"Maria Angelica",\
+ \'93lastname\'94:\'94Alvares",\
+ "email":"nanna@algo.com.br",\
+ "telephone":"91233223"\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf2 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4\b0\fs26\fsmilli13333 \cf2 \expnd0\expndtw0\kerning0
+\{"name\'94:\'94Marcelo",\
+ \'93lastname\'94:\'94Gomes",\
+ "email\'94:\'94marcelogomes@sap.com",\
+ "telephone\'94:\'948999552225"\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf2 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4\b0\fs26\fsmilli13333 \cf2 \expnd0\expndtw0\kerning0
+\{"name\'94:\'94Ken",\
+ \'93lastname\'94:\'94Lomax",\
+ "email\'94:\'94kenlomax@sap.com",\
+ "telephone\'94:\'948855544227"\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+3.8. Change the database from HSQLDB to MySQL and repeat the tests with SoapUI\
+\
+\cf2 \cb4 File: application.yml\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 spring:\
+  datasource:\
+    url: jdbc:mysql://localhost:3306/demo_internal_contacts?useSSL=false&createDatabaseIfNotExist=true\
+    username: root\
+    password: Mysql@2018\
+    driver-class-name: com.mysql.jdbc.Driver\
+  jpa:\
+    properties:\
+      hibernate:\
+        show_sql: 
+\f1\b false
+\f2\b0 \
+        hbm2ddl:\
+          auto: update\
+          management:\
+  jackson:\
+    serialization:\
+      INDENT_OUTPUT: 
+\f1\b true
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+3.9. Enable the Security adding the following dependency in POM.XML:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 \cb4 		<dependency>\
+			<groupId>org.springframework.boot</groupId>\
+			<artifactId>spring-boot-starter-security</artifactId>\
+		</dependency>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \cb1 \
+3.10. Enable the Security adding the following instructions in application.properties:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 \cb4 server.port=8000       // simply to show how change the default port\
+\
+management.port=9000   // defining a specific port to Metrics\
+management.context-path=/admin\
+management.security.enabled=true\
+\
+security.user.name=admin\
+security.user.password=admin\
+security.basic.enabled=true\cf0 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \
+3.11. Enable the Metrics adding the following dependency in POM.XML:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 \cb4 		<dependency>\
+			<groupId>org.springframework.boot</groupId>\
+			<artifactId>spring-boot-starter-actuator</artifactId>\
+		</dependency>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \cb1 \
+3.12. Show the application with Metrics and Security\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf8 \cb9 END DEMO\cf0 \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2\b0 \cf5 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\f0 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+}
